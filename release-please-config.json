@@ -8,8 +8,9 @@
       "bump-patch-for-minor-pre-major": false,
       "draft": false,
       "prerelease": false,
-      "$.pull-request-title-pattern": "chore: release ${version} 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀",
-      "package-name": "release-please-actio-test"
+      "pull-request-title-pattern": "chore: release ${version} 🚀",
+      "package-name": "release-please-actio-test",
+      "pull-request-footer": ""
     }
   },
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
