@@ -8,7 +8,7 @@
       "bump-patch-for-minor-pre-major": false,
       "draft": false,
       "prerelease": false,
-      "pull-request-title-pattern": "chore: release ${version} 🚀",
+      "$.pull-request-title-pattern": "chore: release ${version} 🚀🚀",
       "package-name": "release-please-actio-test"
     }
   },
