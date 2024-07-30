@@ -16,3 +16,6 @@ jobs:
       - uses: googleapis/release-please-action@v4
         with:
           release-type: php
+          pull-request-title-pattern: "chore: release ${version} 🚀🚀"
+          package-name: "release-please-actio-test"
+          pull-request-footer: " "
