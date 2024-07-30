@@ -1,0 +1,97 @@
+{
+  "name": "ajiho/release-please-actio-test",
+  "description": "weather integration for thinkphp6",
+  "scripts": {
+    "post-install-cmd": "cghooks add --ignore-lock",
+    "post-update-cmd": "cghooks update",
+    "lint": "phpcs -p --standard=phpcs.xml --report-file=phpcs-report.txt",
+    "fix": "phpcbf -p --standard=phpcs.xml",
+    "test": "phpunit --colors"
+  },
+  "keywords": [
+    "thinkphp6",
+    "weather"
+  ],
+  "homepage": "https://github.com/ajiho/think-weather",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Ajiho\\Weather\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "ajiho",
+      "email": "lujiahao@88.com",
+      "homepage": "https://github.com/ajiho",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": "^7.4 || ^8.0",
+    "topthink/framework": "^6.0 || ^8.0",
+    "ext-json": "*"
+  },
+  "config": {
+    "process-timeout": 0
+  },
+  "extra": {
+    "hooks": {
+      "config": {
+        "stop-on-failure": [
+          "commit-msg"
+        ]
+      },
+      "pre-commit": [
+        "echo committing as $(git config user.name)",
+        "composer lint",
+        "composer test"
+      ],
+      "commit-msg": [
+        "file=`cat $1`",
+        "./vendor/bin/conventional-commits validate \"$file\""
+      ]
+    },
+    "ramsey/conventional-commits": {
+      "config": {
+        "typeCase": "kebab",
+        "types": [
+          "docs",
+          "style",
+          "refactor",
+          "perf",
+          "test",
+          "chore",
+          "revert",
+          "build",
+          "release",
+          "ci"
+        ],
+        "scopeCase": "kebab",
+        "scopeRequired": false,
+        "scopes": [],
+        "descriptionCase": "lower",
+        "descriptionEndMark": "",
+        "bodyRequired": false,
+        "bodyWrapWidth": 72,
+        "requiredFooters": [
+          "Signed-off-by"
+        ]
+      }
+    },
+    "think": {
+      "config": {
+        "weather": "src/config.php"
+      }
+    }
+  },
+  "require-dev": {
+    "brainmaestro/composer-git-hooks": "^2.8",
+    "ramsey/conventional-commits": "^1.4",
+    "squizlabs/php_codesniffer": "^3.10",
+    "phpunit/phpunit": "^9.6",
+    "mockery/mockery": "^1.6"
+  }
+}
