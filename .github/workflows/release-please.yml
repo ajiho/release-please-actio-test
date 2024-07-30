@@ -20,5 +20,9 @@ jobs:
           # `MY_RELEASE_PLEASE_TOKEN` (this secret name is not important).
           # this is a built-in strategy in release-please, see "Action Inputs"
           # for more options
-          config-file: release-please-config.json
-          manifest-file: .release-please-manifest.json
+          release-type: php
+          pull-request-title-pattern: "chore: release ${version} 🚀🚀"
+          package-name: "release-please-actio-test"
+          pull-request-footer: " "
+          # config-file: release-please-config.json
+          # manifest-file: .release-please-manifest.json
